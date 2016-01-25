@@ -1,17 +1,19 @@
 # R script written by Victor N. Emenike
 # for the Courera R programming course
 # offered by Johns Hopkins University (JHU)
-# written on 25.01.2016 by 06:25
-# The script contains two functions with the first function
-# creating and storing a matrix, 
+# written on 25.01.2016 by 07:51
+# The script contains a pair of functions that 
+# caches the inverse of a matrix 
+# with the first function
+# creating and storing a speacial "matrix" object, 
 # while the second function computes inverse of the matrix
 # returned by the first function
 # 
 # --------------------------------------
 
 # The first function makeCacheMatrix 
-# creates a special "matrix" (which is a list of functions) 
-# and caches the inverse of the matrix
+# creates a special "matrix" object (which is a list of functions) 
+# and caches the inverse of the object 
 #
 makeCacheMatrix <- function(x = matrix()){
     inv <- NULL
@@ -31,7 +33,11 @@ makeCacheMatrix <- function(x = matrix()){
 
 ## The second function cacheSource computes the
 # inverse of a special "matrix" returned by 
-# the first function makeCacheMatrix
+# the first function makeCacheMatrix.
+# In a situation where the inverse has already
+# been calculated and the matrix has not changed
+# the function, cacheSolve simply retrieves the 
+# inverse from the cache
 
 cacheSource <- function(x,...){
     inv <- x$getinverse()
